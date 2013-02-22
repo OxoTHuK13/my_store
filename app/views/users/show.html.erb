@@ -1,0 +1,5 @@
+<p><h2>Пользователь успешно создан</h2></p>
+Имя: <%= @user.firstname %><br/>
+Фамилия: <%= @user.lastname %><br/>
+e-Mail: <%= link_to @user.email, "mailto:#{@user.email}" %><br/>
+Дата рождения: <%= @user.birthday %>

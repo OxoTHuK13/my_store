@@ -1,0 +1,4 @@
+<%= form_for @user do |u| %>
+	<%= render partial: "form", locals: { u: u} %>
+	<%= u.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<% @users.each do |u| %>
+	<p>
+		<%= u.firstname %> <%= u.lastname %> - <%= u.email %> - <%= u.birthday %> <br />
+		<% u.posts.each do |p| %>
+			<b><%= p.title %></b><br />
+			<%= p.post %> </p>
+		<% end %>
+<% end %>
+<%= will_paginate @users %>
