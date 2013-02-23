@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
 	def index
-		@users = User.paginate(per_page: 10, page: params[:page])
+		@pg = params[:pg]
+		@users  = User.paginate(per_page: @pg, page: params[:page])
 	end
 
 	def show
@@ -36,7 +37,9 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		
+		@user = User.find(params[:id])
+		@user.destroy
+		redirect_to users_path
 	end
 
 end

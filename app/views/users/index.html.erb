@@ -1,9 +1,28 @@
-<% @users.each do |u| %>
-	<p>
-		<%= u.firstname %> <%= u.lastname %> - <%= u.email %> - <%= u.birthday %> <br />
-		<% u.posts.each do |p| %>
-			<b><%= p.title %></b><br />
-			<%= p.post %> </p>
-		<% end %>
+<%= form_tag("users", :method => "get") do %>
+	<%= text_field_tag("pg", @pg, :size => "1px") %>
+	<%= submit_tag 'refresh' %>
 <% end %>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Last name</th>
+		<th>e-Mail</th>
+		<th>Birthday</th>
+	</tr>
+
+	<% @users.each do |u| %>
+	<tr>
+		<td><%= link_to u.firstname, u %></td>
+		<td><%= u.lastname %></td>
+		<td><%= link_to u.email, "mailto:#{u.email}" %></td>
+		<td><%= u.birthday %></td>
+	</tr>
+	<% end %>
+</table>	
+
+<%= form_tag("users/new", :method => "get") do%>
+	<%= submit_tag "Create user" %>
+<% end %>
+
 <%= will_paginate @users %>

@@ -1,5 +1,14 @@
-<p><h2>Пользователь успешно создан</h2></p>
-Имя: <%= @user.firstname %><br/>
-Фамилия: <%= @user.lastname %><br/>
-e-Mail: <%= link_to @user.email, "mailto:#{@user.email}" %><br/>
-Дата рождения: <%= @user.birthday %>
+<p><h2>Карточка пользователя</h2></p>
+Имя: <b><%= @user.firstname %></b><br/>
+Фамилия: <b><%= @user.lastname %></b><br/>
+e-Mail: <b><%= link_to @user.email, "mailto:#{@user.email}" %></b><br/>
+Дата рождения: <b><%= @user.birthday %></b>
+<p><%= link_to "Вернуться к списку", :action => 'index' %></p>
+<p>	<%= link_to("Edit user", edit_user_path(@user)) %>
+		<%= link_to("Delete user", user_path(@user), :method => :delete, :data => { :confirm => "Are you sure?" }) %></p><br />
+<h2>Сообщения:</h2>
+	<% @user.posts.each do |p| %>
+	<p>
+		<b><%= p.title %></b><br />
+		<%= p.post %> </p>
+	<% end %>
