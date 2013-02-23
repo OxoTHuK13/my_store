@@ -6,9 +6,9 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #group :development do
-#	gem 'sqlite3', '1.3.3' 
+gem 'sqlite3' #, '1.3.3' 
 #end
-gem 'pg'
+#gem 'pg'
 
 #Displaying Validation Errors in the View
 #DynamicForm provides helpers to display the error messages of your models in your view templates.
